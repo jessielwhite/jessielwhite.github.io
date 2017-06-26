@@ -252,7 +252,6 @@ _.unique = function(array){
     return duplicatesRemoved;
 };
 
-
 /** _.map()
 * Arguments:
 *   1) A collection
@@ -278,7 +277,7 @@ _.map = function(collection, test){
 
 
 /** _.pluck()
-* Arguments:
+* jArguments:
 *   1) An array of objects
 *   2) A property
 * Objectives:
@@ -289,8 +288,8 @@ _.map = function(collection, test){
 */
 _.pluck = function(array, property){
     const plucked = [];
-    _.map(array, function(element, collection){
-        plucked.push(property(element))
+    _.map(array, function(element, index, collection){
+        plucked.push(element[property]);
     });
     return plucked;
 };
@@ -302,13 +301,18 @@ _.pluck = function(array, property){
 * Objectives:
 *   1) Return true if <array> contains <value>
 *   2) Return false otherwise
-*   3) You must use the ternary operator in your implementation.
+*   3)You must use the ternary operator in your implementation.
 * Gotchas:
 *   1) did you use === ?
 *   2) what if no <value> is given?
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+_.contains = function(array, value) {
+    return _.indexOf(array, value) === -1 ? false : true;
+        
+    
+};
 
 
 /** _.every()
@@ -331,7 +335,23 @@ _.pluck = function(array, property){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(coll, func){
+    let result = true;
+    if (typeof func === 'function') {
+        _.each(coll, function(element, index, array) {
+          if (!func(element, index, array)) {
+              result = false;
+            }  
+        });
+    } else {
+      _.each(coll, function(element, index, array) {
+          if (!element) {
+              result = false;
+            }     
+        });
+    }
+    return result;
+};
 
 /** _.some()
 * Arguments:
@@ -353,8 +373,23 @@ _.pluck = function(array, property){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
-
+_.some = function(coll, func) {
+    let result = false;
+    if (typeof func === 'function') {
+        _.each(coll, function(element, index, array) {
+          if (func(element, index, array)) {
+              result = true;
+            }  
+        });
+    } else {
+      _.each(coll, function(element, index, array) {
+          if (element) {
+              result = true;
+            }     
+        });
+    }
+    return result;
+};
 /** _.reduce()
 * Arguments:
 *   1) An array
@@ -373,7 +408,21 @@ _.pluck = function(array, property){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = function(array, test, seed) {
+    let result;
+    if (seed > -1) {
+        result = seed;
+        _.each(array, function(element, index, collection){
+            result = test(result, element, index);
+        });
+    } else {
+        result = array[0];
+        for (let i = 1; i < array.length; i++) {
+            result = test(result, array[i], i);
+        }
+    }
+    return result;
+};
 
 /** _.extend()
 * Arguments:
@@ -389,7 +438,15 @@ _.pluck = function(array, property){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function(objectA, objectB){
+    let result = objectA;
+    for (let i = 0; i < arguments.length; i++){
+        _.each(arguments[i], function(element, index, collection){
+            result[index] = element;
+        });
+    }
+     return result;
+};
 
 // This is the proper way to end a javascript library
 }());
