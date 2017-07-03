@@ -1,5 +1,5 @@
 body {
-    background: rgb(125, 198, 205);
+    background: darkcyan;
     color: rgb(45, 45, 45);
     padding: 10px;
     font-family: arial;
@@ -19,7 +19,7 @@ header {
 /* navigation menu */
 
 nav {
-    background: rgb(239, 80, 41);
+    background: darkred;
     margin: 0 auto;
     display: flex;
     padding: 10px;
@@ -80,4 +80,20 @@ main {
     border: 2px solid;
     border-color: rgba(255, 255, 255, 1);
     cursor: pointer; cursor: hand;
+}
+
+#list-top-rated, #list-recordings {
+    list-style: none;
+    padding-left: 0px;
+}
+
+#list-top-rated > li, 
+#list-recordings > li {
+    color: darkcyan;
+    font-family: 'Helvetica';
+    cursor: pointer;
+    background-color: lightgrey;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
 }
