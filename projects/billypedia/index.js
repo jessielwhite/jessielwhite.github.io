@@ -1,4 +1,4 @@
-/* global $ _ opspark */
+
 $(document).ready(function() {
     $.getJSON('data.json', function (data) {
         // YOUR CODE BELOW HERE //
@@ -84,7 +84,7 @@ $(document).ready(function() {
                 $row.append($itemType);
                 $row.append($itemDesc);
                 return $row;
-            }
+        
             var $table = $("<table>");
             var $rows = rider.map(createRow);
             var $header = $("<th>").text("Billy's Rider");
