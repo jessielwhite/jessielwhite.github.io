@@ -20,13 +20,29 @@
                 <h1>Product Project</h1>
             </nav>
             <main>
-                
+                <div class="form-group">
+                    <label for="search">Search:</label>
+                    <input type="text" class="form-control" id="search-input">
+                    <br/>
+                    <button class="btn btn-primary" id="search-button">Search</button>
+                    <button class="btn btn-primary" id="view-all">View All</button>
+                </div>
+                <h5>Product Type:</h5>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="phone-filter">Phone</button>
+                    <button type="button" class="btn btn-primary" id="case-filter">Case</button>
+                </div>
+                <h5>Sort By Price:</h5>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="lowest">Lowest to Highest</button>
+                    <button type="button" class="btn btn-primary" id="highest">Highest to Lowest</button>
+                </div>
             </main>
             
         </div>
         <script>
             $(function () {
-                window.opspark.notes.show();
+                // window.opspark.notes.show();
             });
         </script>
     </body>
