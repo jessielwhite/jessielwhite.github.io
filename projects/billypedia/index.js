@@ -2,14 +2,14 @@
 $(document).ready(function() {
     $.getJSON('data.json', function (data) {
         // YOUR CODE BELOW HERE //
-    $('div').css('color', 'black');
-    $('#section-quotes').css('background-color', 'grey').css('border-radius', '4px');
-    $('.heading-quotes').css('color', 'white').css('padding-left', '10px');
-    $('.quote').css('color', 'white').css('font-style', 'italic');
-    $('#quotes').css('padding-right', '10px').css('padding-left', '10px');
-    $('#quotes:last-child').css('padding-bottom', '4px');
-    $('#section-quotes').prependTo('#sections');
-    $('#image-billy').attr('src', 'images/billy/billy-1.jpg');
+        $('div').css('color', 'black');
+        $('#section-quotes').css('background-color', 'grey').css('border-radius', '4px');
+        $('.heading-quotes').css('color', 'white').css('padding-left', '10px');
+        $('.quote').css('color', 'white').css('font-style', 'italic');
+        $('#quotes').css('padding-right', '10px').css('padding-left', '10px');
+        $('#quotes:last-child').css('padding-bottom', '4px');
+        $('#section-quotes').prependTo('#sections');
+        $('#image-billy').attr('src', 'images/billy/billy-1.jpg');
 
 
         
@@ -84,6 +84,7 @@ $(document).ready(function() {
                 $row.append($itemType);
                 $row.append($itemDesc);
                 return $row;
+            };
         
             var $table = $("<table>");
             var $rows = rider.map(createRow);
@@ -91,9 +92,10 @@ $(document).ready(function() {
             $table.append($header, $rows);
             return $table;
         };
+        
         let rider = data.rider;
         createTable(rider).appendTo(".content");
-        // YOUR CODE ABOVE HERE //
+            // YOUR CODE ABOVE HERE //
     })
     .fail(function() { console.log('getJSON on discography failed!'); });
 });
