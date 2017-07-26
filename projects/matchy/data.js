@@ -12,45 +12,40 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var animal = {};
-animal.species = "Felis catus";
-animal['name'] = "Pajanimal";
+animal.species = "Dog";
+animal['name'] = "Donkey";
 animal.noises = [];
 console.log(animal);
-
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var noises = [];
-noises[0] = "Meow";
-noises.push("Coo");
-noises.unshift("Purr");
-noises.push("Roar");
+noises[0] = "Bark";
+noises.push("Woof");
+noises.unshift("Growl");
+noises.push("Whimper");
 console.log(noises.length);
 console.log(noises[noises.length -1]);
 console.log(noises);
-
-
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 animal.noises = noises;
-animal.noises.push("Mew");
+animal.noises.push("Grunt");
 console.log(animal);
-
-
 
 
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
- * Using bracket and/or dot notation.
+ *
  * 2. What are the different ways of accessing elements on arrays?
- * Using array functions and bracket notation
+ *
  * *******************************************************************
  */
 
@@ -78,27 +73,23 @@ animals.push(duck);
 console.log(animals);
 var dog = { 
     species: 'dog', 
-    name: 'Shenzi', 
-    noises: ['woof', 'bark', 'groan'] 
+    name: 'Miss Pimm', 
+    noises: ['woof', 'bark', 'grunt'] 
 };
-var bird = { 
-    species: 'bird', 
-    name: 'Basil', 
-    noises: ['tweet', 'chirp', 'bleep'] 
+var cat = { 
+    species: 'cat', 
+    name: 'Kinks', 
+    noises: ['meow', 'coo', 'purr'] 
 };
 animals.push(dog);
-animals.push(bird);
+animals.push(cat);
 console.log(animals);
 console.log(animals.length);
-
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-/* I will be using an array as my data structure to hold friends,
- * because they can hold an indefinite number of items.
- */
  var friends = [];
  
  function getRandomAnimal(animalArr) {
@@ -111,6 +102,8 @@ console.log(animals.length);
  friends.push(randomAnimal.name);
  console.log(friends);
  getRandomAnimal(animals).friends = friends;
+
+
 
 /** 
  * Nice work! You're done Part 1. Pat yourself on the back and 
