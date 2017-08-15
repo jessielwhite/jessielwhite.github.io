@@ -74,12 +74,10 @@ _.typeOf = function(value){
 */
 _.first = function(arr, num){
     if(!Array.isArray(arr) || num < 0) return [];
-    if(num === undefined || typeof num !== 'number') return arr[0];
+    if(num === undefined || isNaN(num)) return arr[0];
     return arr.slice(0, num);
 };
     
-
-
 /** _.last()
 * Arguments:
 *   1) An array
@@ -100,9 +98,6 @@ _.last = function(arr, num){
     if(num === undefined || isNaN(num)) return arr[arr.length -1];
     return arr.slice(-num);
 };
-
-
-
 
 /** _.each()
 * Arguments:
@@ -130,7 +125,6 @@ _.each = function(coll, func){
         }
     }
 };
-
 
 /** _.indexOf()
 * Arguments:
