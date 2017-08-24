@@ -1,0 +1,8 @@
+#list-products{
+    list-style: none;
+}
+
+#type .dropdown-menu li {
+    cursor: pointer;
+    text-transform: capitalize;
+}
